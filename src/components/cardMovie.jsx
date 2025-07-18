@@ -1,21 +1,16 @@
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import star from "../assets/star.png";
 
-const ShowPopularMovies = ({ popularMovies }) => {
-  const navigate = useNavigate();
-  return popularMovies.map((results) => {
+const ShowMovies = ({ movies }) => {
+  return movies.map((results) => {
     const date = new Date(results.release_date);
     const year = date.getFullYear();
 
-    const handleClick = (movie) => {
-      navigate(`movie/${movie.title}`);
-    };
-
     return (
-      <div
+      <Link
+        to={`/movie/${results.title}`}
         className="relative h-56 w-40  bg-slate-400 m-2 border border-opacity-65  border-gray-700 rounded-lg hover:scale-110 hover:-translate-y-1 transition-all"
         key={results.id}
-        onClick={() => handleClick(results)}
       >
         <img
           draggable="false"
@@ -32,9 +27,9 @@ const ShowPopularMovies = ({ popularMovies }) => {
             </div>
           </div>
         </div>
-      </div>
+      </Link>
     );
   });
 };
 
-export default ShowPopularMovies;
+export default ShowMovies;

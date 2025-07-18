@@ -28,15 +28,14 @@ const Navbar = () => {
             {moviesOnSearch.slice(0, 5).map((movie) => {
               return (
                 <Link
-                  className="flex items-center emmy-1 mx-2 h-28 border-b border-gray-600 "
+                  to={`movie/${movie.title}`}
+                  className="flex items-center emmy-1 mx-2 h-28 border-b  border-gray-600 "
                   key={movie.id}
                 >
                   <img
                     draggable="false"
                     className="rounded-lg  h-24 w-auto"
-                    src={`${import.meta.env.VITE_BASEIMGURL}/${
-                      movie.poster_path
-                    }`}
+                    src={`${import.meta.env.VITE_BASEIMGURL}/${movie.poster_path}`}
                   ></img>
                   <div>
                     <div className="ps-1 pt-2 text-balance text-xs font-bold">
@@ -51,9 +50,16 @@ const Navbar = () => {
               );
             })}
           </div>
-          <Link className="text-xs font-medium flex justify-center my-2 text-red-700 underline italic">
-            View All Result
-          </Link>
+          <div>
+            <Link className="text-xs font-medium flex justify-center my-2 text-red-700 underline italic">
+              View All Result
+            </Link>
+            <div className="text-sm flex justify-end  ">
+              <button onClick={() => setIsFocus(false)} className="w-fit px-3">
+                Close
+              </button>
+            </div>
+          </div>
         </div>
       );
     } else if (showSearchResult && isFocus) {
@@ -87,18 +93,14 @@ const Navbar = () => {
           Upcoming
         </Link>
       </div>
-      <div className="static z-10  ">
+      <div className="static z-10  " onFocus={() => setIsFocus(true)}>
         <input
           className="ps-2 mx-5 rounded-md text-sm  font-semibold h-9 w-64 bg-gradient-to-r from-orange-800 to-violet-950 bg-[position:_0%_0%] hover:bg-[position:_100%_100%] bg-[size:_200%]  transition-all duration-500 focus:to-red-500  "
           type="text"
           placeholder="Search..."
           onChange={(target) => search(target.currentTarget.value)}
-          onFocus={() => setIsFocus(true)}
-          onBlur={() => setIsFocus(false)}
         ></input>
-        {/* <div className="absolute z-20 top-5 pl-52 h-8 right-12  hover:-rotate-1 w-">
-          <img className=" size-7  " src={searchLogo} alt="" />
-        </div> */}
+
         <SearchResult />
       </div>
     </nav>
