@@ -15,7 +15,7 @@ const UpcomingPages = () => {
   return (
     <>
       <Navbar />
-      <div className="bg-black pt-8 text-white">
+      <div className="bg-black pt-8 text-white min-h-[100vh]">
         <span className="ps-20 font-bold text-2xl  ">UPCOMING MOVIES</span>
         <div className="flex flex-wrap mx-10 mt-5">
           <ShowMovies movies={upcomingMovies} />

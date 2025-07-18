@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { getNowplayList, getPopularList } from "../API";
 import Navbar from "../components/navbar";
-import ShowPopularMovies from "../components/cardMovie";
 import MoviesSlider from "../components/moviesSlider";
 import ShowMovies from "../components/cardMovie";
 
@@ -20,7 +19,7 @@ const Mainboard = () => {
 
   // APP RETURN
   return (
-    <div className=" from-black text-white">
+    <div className=" from-black text-white ">
       {/* NAVBAR */}
       <Navbar />
 
@@ -29,7 +28,7 @@ const Mainboard = () => {
 
       {/* POPULAR MOVIES */}
       <div className="bg-black pt-8 ">
-        <span className="ps-20 font-bold text-2xl ">POPULAR</span>
+        <span className="ps-20 font-bold text-2xl min-h-[100vh]">POPULAR</span>
         <div className="flex flex-wrap mx-10 mt-5">
           <ShowMovies movies={popularMovies} />
         </div>

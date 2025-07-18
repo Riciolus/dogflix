@@ -13,7 +13,7 @@ const PopularPages = () => {
   }, []);
 
   return (
-    <>
+    <div className="bg-black  min-h-[100vh]">
       <Navbar />
       <div className="bg-black pt-8 text-white">
         <span className="ps-20 font-bold text-2xl  ">POPULAR MOVIES</span>
@@ -21,7 +21,7 @@ const PopularPages = () => {
           <ShowMovies movies={popularMovies} />
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
